@@ -1,0 +1,7 @@
+{{- if eq .chezmoi.hostname "hisoka" }}
+monitor=HDMI-A-1,2560x1440,0x0,1
+monitor=DP-2,1920x1080,320x-1080,1
+{{- else if eq .chezmoi.hostname "onega"}}
+monitor=HDMI-A-1,2560x1440@144,2560x0,1
+monitor=DP-2,2560x1440@144,0x0,1
+{{- end }}
