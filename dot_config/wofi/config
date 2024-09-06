@@ -1,0 +1,9 @@
+# Kattunge Wofi Config // Aug 2022
+show=drun
+columns=1
+width=35%
+no_actions=true
+allow_images=true
+insensitive=true
+image_size=35
+prompt= Search...

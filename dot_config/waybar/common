@@ -1,0 +1,86 @@
+
+{
+  "position": "top",
+    "margin-top": 5,
+    "margin-bottom" : 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "height" : 35,
+
+    "modules-left": [
+      "cpu",
+      "memory",
+      "hyprland/window"
+    ],
+    "modules-center": [
+      "hyprland/workspaces",
+    ],
+    "modules-right": [
+      "hyprland/language",
+      "pulseaudio",
+      "network",
+      "temperature",
+      "disk",
+      "clock",
+    ],
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 35,
+      "rewrite": {
+        "": "Hyprland"
+      },
+      "separate-outputs": true,
+    },
+
+    "hyprland/language": {
+      "format": "{}",
+      "format-en": "EN",
+      "format-ru": "RU",
+    },
+
+    "disk": {
+      "interval": 30,
+      "unit": "GB",
+      "format": "{specific_used:0.2f}/{specific_total:0.2f} GB",
+    },
+
+
+    "clock": {
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false
+    },
+    "memory": {
+      "format": "{}%  "
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["", "", ""]
+    },
+   
+    "network": {
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": "⇣{bandwidthDownBytes} ",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+    },
+}

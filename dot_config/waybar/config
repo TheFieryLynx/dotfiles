@@ -1,0 +1,10 @@
+[
+  {
+    "include": ["~/.config/waybar/common", "~/.config/waybar/first"],
+    "output": "HDMI-A-1",
+  },
+  {
+    "include": ["~/.config/waybar/common", "~/.config/waybar/second"],
+    "output": "DP-2",
+  },
+]

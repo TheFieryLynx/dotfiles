@@ -1,0 +1,97 @@
+
+configuration {
+	modi:                       "filebrowser";
+}
+
+* {
+    font: "Hack Nerd Font Mono 16";
+    background-color:     rgb(36, 39, 58, 0.9);
+    background-alt: rgb(54, 58, 79, 0.9);
+    foreground:     rgb(202, 211, 245, 0.9);
+    selected:       rgb(73, 77, 100, 0.9);
+    active:         rgb(128, 135, 162);
+    urgent:         rgb(237, 135, 150);
+ 
+	text-color:       white;
+ }
+
+window {
+  height: 850;
+  width: 2000;
+	padding:          1em;
+	children:         [ wrap, listview-split];
+	spacing:          1em;
+}
+
+
+listview-split {
+  orientation: horizontal;
+  spacing: 0.4em;
+  children: [listview, icon-current-entry];
+}
+
+icon-current-entry {
+  expand:          true;
+  size:            80%;
+}
+
+wrap {
+	expand: false;
+	orientation: vertical;
+	children: [ inputbar ];
+	border-color: lightblue;
+	border: 3px;
+	border-radius: 0.4em;
+}
+
+icon-ib {
+	expand: false;
+	filename: "system-search";
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+	size: 1em;
+}
+inputbar {
+	spacing: 0.4em;
+	padding: 0.4em;
+	children: [ icon-ib, entry ];
+}
+entry {
+	placeholder: "Search...";
+	placeholder-color: grey;
+}
+
+listview {
+	flow: horizontal;
+	fixed-columns: true;
+	columns: 4;
+	lines: 3;
+	spacing: 1.0em;
+}
+
+element {
+	orientation: vertical;
+	border-color: lightblue /15%;
+	border: 3px;
+	border-radius: 0.4em;
+
+  children: [element-icon, element-text ];
+}
+element-icon {
+	size: calc(((100%) / 8 ));
+}
+element-text {
+	horizontal-align: 0.5;
+	vertical-align: 0.5;
+}
+
+element selected {
+	background-image: linear-gradient(white/25%, white/10%);
+	border-color: lightblue;
+	border: 3px;
+	border-radius: 0.4em;
+}
+
+
+
+
