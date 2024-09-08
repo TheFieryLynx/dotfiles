@@ -1,0 +1,218 @@
+{
+  "position": "top",
+  "margin-top": 10,
+  "margin-bottom" : 0,
+  "margin-left": 10,
+  "margin-right": 10,
+  "height" : 35,
+
+ "modules-left": [
+    "custom/arch",
+    "hyprland/window"
+],
+
+
+  "modules-center": [
+    "custom/l_arrow4",
+    "temperature",
+
+    "custom/l_arrow3",
+    "memory",
+
+    "custom/l_arrow2",
+    "cpu",
+
+    "custom/l_arrow2_bl",
+
+    "custom/l_arrow1",
+    "hyprland/workspaces",
+    "custom/r_arrow1",
+    
+    "custom/r_arrow2_bl",
+
+    "clock#time",
+    "custom/r_arrow2",
+  
+    "clock#date",
+    "custom/r_arrow3",
+
+    "hyprland/language",
+    "custom/r_arrow4",
+  ],
+
+  "modules-right": [
+    "custom/l_arrow4",
+    "pulseaudio",
+
+    "custom/l_arrow3",
+
+    "disk",
+    "custom/l_arrow5_bl",
+
+    "custom/power",
+  ],
+
+
+
+
+// left arrows 
+
+  "custom/l_arrow1": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/l_arrow2": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/l_arrow3": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/l_arrow4": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/l_arrow2_bl": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/l_arrow5_bl": {
+    "format": "",
+    "tooltip": false
+  },
+
+// right arrows
+  "custom/r_arrow1": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/r_arrow2": {
+    "format": "",
+    "tooltip": false
+  },
+  
+  "custom/r_arrow3": {
+    "format": "",
+    "tooltip": false
+  },
+  
+  "custom/r_arrow4": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/r_arrow2_bl": {
+    "format": "",
+    "tooltip": false
+  },
+
+
+// widgets
+  "custom/arch": {
+    "format": "",
+    "tooltip": false,
+    "min-length": 4,
+    "max-length": 4
+  },
+  
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "min-length": 4,
+    "max-length": 4
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "rewrite": {
+      "": "Hyprland"
+    },
+    "separate-outputs": true,
+  },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-ru": "RU",
+    "min-length": 8,
+    "max-length": 8
+  },
+
+  "disk": {
+    "interval": 30,
+    "unit": "GB",
+    "format": "{specific_used:0.2f}/{specific_total:0.2f} GB",
+  },
+
+  "clock#time": {
+    "format": "󱑂 {:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%I:%M %p}",
+    "min-length": 8,
+    "max-length": 8
+  },
+
+  "clock#date": {
+    "format": "󱨴 {:%m-%d}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on-click-right": "mode",
+        "format": {
+            "months": "<span color='#f5e0dc'><b>{}</b></span>",
+            "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+            "today": "<span color='#f38ba8'><b>{}</b></span>"
+        }
+    },
+    "actions": {"on-click-right": "mode"},
+    "min-length": 8,
+    "max-length": 8
+	},
+
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+    "min-length": 8,
+    "max-length": 8
+  },
+  "memory": {
+    "format": "{}% ",
+    "tooltip":false,
+    "min-length": 8,
+    "max-length": 8
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [""],
+    "min-length": 8,
+    "max-length": 8
+  },
+ 
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+}

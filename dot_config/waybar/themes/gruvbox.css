@@ -1,0 +1,7 @@
+@define-color fg0 #fbf1c7; /* text/logos */
+@define-color fg1 #ebdbb2; /* worspaces */
+@define-color fg2 #d5c4a1; /* cpu/time */
+@define-color fg3 #bdae93; /* mem/date/dimem/date/disk */
+@define-color fg4 #a89984; /* temp/lang/audio */
+@define-color bttn #fe8019; /* arch logo/powerbutton */
+@define-color active#8ec07c; /* active window */
