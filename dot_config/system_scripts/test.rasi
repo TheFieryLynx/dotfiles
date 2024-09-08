@@ -1,0 +1,77 @@
+// # z0mbi3 -  https://github.com/gh0stzk/dotfiles
+
+// Config //
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    font:                        "JetBrainsMono NF Bold 11";
+
+}
+
+* {
+main-bg: #14171c;
+main-fg: #b8bfe5;
+select-bg: #7560d3;
+select-fg: #14171c;
+}
+
+
+// Main //
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    transparency:                "real";
+    cursor:                      "default";
+    border-color:                transparent;
+    background-color:            transparent;
+    location:                    center;
+}
+
+mainbox {
+    enabled:                     true;
+    children:                    [listview];
+    background-color:            transparent;
+}
+
+
+// Lists //
+listview {
+    enabled:                     true;
+    columns:                     2;
+    lines:                       1;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    cursor:                      "default";
+    background-color:            transparent;
+
+}
+
+
+// Elements //
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    children: [element-icon];
+}
+
+element selected.normal {
+    background-color:            transparent;
+    text-color:                  transparent;
+    border-color:               #fe8019;
+    border:                     3px;
+}
+element-icon {
+    border-radius:               0px;
+    background-color:            transparent;
+    size: 42em;
+}
+element-text {
+  enabled: false;
+  background-color: #ffffff;
+}
