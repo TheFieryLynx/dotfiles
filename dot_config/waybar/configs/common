@@ -126,7 +126,8 @@
     "format": "",
     "tooltip": false,
     "min-length": 4,
-    "max-length": 4
+    "max-length": 4,
+    "on-click": "wlogout -b 4"
   },
 
   "hyprland/window": {
