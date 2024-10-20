@@ -83,6 +83,11 @@ return {
         lspconfig.pyright.setup({
           capabilities = capabilities,
           filetypes = { "python" },
+          settings = {
+            pyright = {
+              reportIncompatibleVariableOverride = "false",
+            },
+          },
         })
       end,
 
@@ -96,12 +101,6 @@ return {
               },
             },
           },
-        })
-      end,
-
-      ["tsserver"] = function()
-        lspconfig.tsserver.setup({
-          capabilities = capabilities,
         })
       end,
 
