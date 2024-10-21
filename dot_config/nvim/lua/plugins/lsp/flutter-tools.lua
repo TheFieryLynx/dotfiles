@@ -7,7 +7,7 @@ return {
   },
   config = function()
     require("flutter-tools").setup({
-      flutter_path = "/Users/andrew/software/flutter-latest/bin/flutter",
+      flutter_path = "/home/andrew/software/flutter/bin/flutter",
       lsp = {
         color = {
           enabled = true,
