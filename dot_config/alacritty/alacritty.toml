@@ -1,3 +1,4 @@
+[general]
 import = [
 "~/.config/alacritty/CURRENT_THEME.toml",
 "~/.config/alacritty/keyboard.toml"
