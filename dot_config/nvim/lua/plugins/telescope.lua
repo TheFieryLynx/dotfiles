@@ -22,5 +22,7 @@ return {
     require("which-key").register({
       ["<leader>fh"] = { telescope_builtin.help_tags, "Search help tags" },
     })
+
+    telescope.setup({})
   end,
 }

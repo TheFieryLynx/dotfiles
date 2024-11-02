@@ -1,5 +1,5 @@
 return {
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  "https://github.com/maan2003/lsp_lines.nvim",
   config = function()
     local lsp_lines = require("lsp_lines")
 
