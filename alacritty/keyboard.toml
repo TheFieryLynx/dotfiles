@@ -1,0 +1,8 @@
+[keyboard]
+bindings = [
+  { key = "ArrowLeft", mods = "Option", chars = "\u001bb" },    # Jump left a word
+  { key = "ArrowRight", mods = "Option", chars = "\u001bf" },   # Jump right a word 
+  { key = "ArrowLeft", mods = "Command", chars = "\u001bOH" },  # Start of line
+  { key = "ArrowRight", mods = "Command", chars = "\u001bOF" }, # End of line 
+  { key = "Backspace", mods = "Command", chars = "\u0015" },    # Delete line
+] 
