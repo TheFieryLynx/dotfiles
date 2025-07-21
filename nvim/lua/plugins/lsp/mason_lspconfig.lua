@@ -1,13 +1,18 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
-	dependencies = { "mason-org/mason.nvim", "hrsh7th/nvim-cmp" },
-	enabled = false,
+	opts = {},
+	dependencies = {
+		{ "mason-org/mason.nvim", opts = {} },
+		"neovim/nvim-lspconfig",
+	},
+	enabled = true,
 	config = function()
 		local mason_lspconfig = require("mason-lspconfig")
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"pyright",
-				"ruff",
+				"lua_ls",
+				"qmlls",
 			},
 		})
 
@@ -21,59 +26,40 @@ return {
 
 		local lspconfig = require("lspconfig")
 
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				require("lspconfig")[server_name].setup({})
-			end,
+		lspconfig.ansiblels.setup({
+			filetypes = { "yaml", "yml" },
+			capabilities = capabilities,
+		})
+		lspconfig.qmlls.setup({
+			filetypes = { "qml" },
+			capabilities = capabilities,
+			cmd = { "qmlls" },
+		})
 
-			["ansiblels"] = function()
-				lspconfig.ansiblels.setup({
-					filetypes = { "yaml", "yml" },
-					capabilities = capabilities,
-				})
-			end,
-
-			["pyright"] = function()
-				lspconfig.pyright.setup({
-					-- capabilities = capablities,
-					filetypes = { "python" },
-					settings = {
-						python = {
-							analysis = {
-								useLibraryCodeForTypes = "True",
-								diagnosticSeverityOverrides = {
-									reportIncompatibleVariableOverride = "none",
-								},
-							},
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+			filetypes = { "python" },
+			settings = {
+				python = {
+					analysis = {
+						useLibraryCodeForTypes = true,
+						diagnosticSeverityOverrides = {
+							reportIncompatibleVariableOverride = "none",
 						},
 					},
-				})
-			end,
+				},
+			},
+		})
 
-			["lua_ls"] = function()
-				lspconfig.lua_ls.setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "vim" },
-							},
-						},
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
 					},
-				})
-			end,
-
-			["eslint"] = function()
-				lspconfig.eslint.setup({
-					capabilities = capabilities,
-					on_attach = function(_, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							buffer = bufnr,
-							command = "EslintFixAll",
-						})
-					end,
-				})
-			end,
+				},
+			},
 		})
 	end,
 }
