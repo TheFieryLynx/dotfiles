@@ -12,7 +12,7 @@ return {
 			ensure_installed = {
 				"pyright",
 				"lua_ls",
-				"qmlls",
+				"ts_ls",
 			},
 		})
 
@@ -47,12 +47,23 @@ return {
 			filetypes = { "yaml", "yml" },
 			capabilities = capabilities,
 		})
-		lspconfig.qmlls.setup({
-			filetypes = { "qml" },
-			capabilities = capabilities,
-			cmd = { "qmlls", "-E" },
+		lspconfig.ts_ls.setup({
+			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			cmd = { "typescript-language-server", "--stdio" },
+			settings = {
+				typescript = {
+					inlayHints = {
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayEnumMemberValueHints = true,
+					},
+				},
+			},
 		})
-
 		lspconfig.pyright.setup({
 			capabilities = capabilities,
 			filetypes = { "python" },
