@@ -18,7 +18,6 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_format" },
-				qml = { "qmlformat" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

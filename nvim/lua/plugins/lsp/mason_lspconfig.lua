@@ -14,6 +14,7 @@ return {
 				"lua_ls",
 				"ts_ls",
 			},
+			automatic_enable = false,
 		})
 
 		vim.diagnostic.config({
@@ -48,7 +49,7 @@ return {
 			capabilities = capabilities,
 		})
 		lspconfig.ts_ls.setup({
-			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			filetypes = { "typescript", "typescriptreact", "javascript", "typescript.tsx", "javascriptreact" },
 			cmd = { "typescript-language-server", "--stdio" },
 			settings = {
 				typescript = {
