@@ -5,4 +5,4 @@ alias cd="z"
 alias vim="nvim"
 alias cat="bat"
 
-alias dotfiles="cd ~/.dotfiles/"
+alias DOTFILES="cd ~/.dotfiles/"
