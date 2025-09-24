@@ -12,7 +12,8 @@ return {
 			ensure_installed = {
 				"pyright",
 				"lua_ls",
-				"ts_ls",
+				"qmlls",
+				"ansiblels",
 			},
 			automatic_enable = false,
 		})
@@ -42,45 +43,34 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		local lspconfig = require("lspconfig")
+		vim.lsp.enable({ "pyright", "lua_ls", "qmlls", "ansiblels" })
 
-		lspconfig.ansiblels.setup({
-			filetypes = { "yaml", "yml" },
+		vim.lsp.config["ansiblels"] = {
 			capabilities = capabilities,
-		})
-		lspconfig.ts_ls.setup({
-			filetypes = { "typescript", "typescriptreact", "javascript", "typescript.tsx", "javascriptreact" },
-			cmd = { "typescript-language-server", "--stdio" },
-			settings = {
-				typescript = {
-					inlayHints = {
-						includeInlayParameterNameHints = "all",
-						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayVariableTypeHints = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayEnumMemberValueHints = true,
-					},
-				},
-			},
-		})
-		lspconfig.pyright.setup({
+			filetypes = { "yaml", "yml" },
+		}
+		vim.lsp.config["pyright"] = {
 			capabilities = capabilities,
 			filetypes = { "python" },
 			settings = {
 				python = {
 					analysis = {
-						useLibraryCodeForTypes = true,
+						useLibraryCodeForTypes = "True",
 						diagnosticSeverityOverrides = {
 							reportIncompatibleVariableOverride = "none",
+							reportGeneralTypeIssues = "none",
 						},
 					},
 				},
 			},
-		})
-
-		lspconfig.lua_ls.setup({
+		}
+		vim.lsp.config["qmlls"] = {
+			capabilities = capabilities,
+			settings = {
+				root_dir = vim.lsp.util.find_git_ancestor,
+			},
+		}
+		vim.lsp.config["lua_ls"] = {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -89,6 +79,6 @@ return {
 					},
 				},
 			},
-		})
+		}
 	end,
 }
