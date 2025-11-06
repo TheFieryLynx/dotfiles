@@ -9,6 +9,7 @@
                       :y "0%"
                       :width "100%"
                       :height "0"
-                      :anchor "top center")
+                      :anchor "top center"
+            )
   :reserve (struts :side "top" :distance "0%")
   (bar))

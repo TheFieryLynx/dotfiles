@@ -1,3 +1,5 @@
+(defpoll current_time :interval "5s" "date +'%H:%M'")
+
 (defwidget divider [dir num]
   (box :class "${dir}_div_${num}_box"
        :orientation "h"
@@ -25,9 +27,21 @@
   )
 )
 
+(defwidget time []
+  (box :class "time_box"
+       :orientation "h"
+       :space-evenly false
+       :spacing 0
+    (label :class "time_icon" :text "")  
+    (label :class "time_text" :text {current_time})
+  )
+)
+
+
 (defwidget center []
   (box :orientation "h"
        :space-evenly false
+       :spacing 0
     (divider :dir "left" :num 2)
     (inverted_divider :dir "left" :num 1)
     (divider :dir "left" :num 1)
@@ -35,5 +49,8 @@
     (divider :dir "right" :num 1)
     (inverted_divider :dir "right" :num 1)
     (divider :dir "right" :num 2)
+    (inverted_divider :dir "right" :num 2)
+    (time)
+    (divider :dir "right" :num 3)
   )
 )

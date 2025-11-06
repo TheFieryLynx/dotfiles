@@ -29,7 +29,20 @@
 /* ----< time >---- */
 
 .right_invdiv_1,
-.right_div_2 {
+.right_div_2,
+.right_invdiv_2,
+.right_div_3 {
 	color: $time;
 	font-size: 22px;
+}
+.time_icon {
+  background-color: $time;
+  margin: 0 5px 0 5px;
+}
+.time_text {
+  background-color: $time;
+  margin: 0 5px 0 5px;
+}
+.time_box {
+  background-color: $time;
 }
