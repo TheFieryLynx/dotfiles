@@ -13,7 +13,6 @@ return {
 				"pyright",
 				"lua_ls",
 				"qmlls",
-				"ansiblels",
 			},
 			automatic_enable = false,
 		})
@@ -43,12 +42,8 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		vim.lsp.enable({ "pyright", "lua_ls", "qmlls", "ansiblels" })
+		vim.lsp.enable({ "pyright", "lua_ls", "qmlls" })
 
-		vim.lsp.config["ansiblels"] = {
-			capabilities = capabilities,
-			filetypes = { "yaml", "yml" },
-		}
 		vim.lsp.config["pyright"] = {
 			capabilities = capabilities,
 			filetypes = { "python" },
@@ -68,6 +63,10 @@ return {
 			capabilities = capabilities,
 			settings = {
 				root_dir = vim.lsp.util.find_git_ancestor,
+				qmlls = {
+					builDir = "build",
+					qmlDir = "/usr/lib/qt6/qml",
+				},
 			},
 		}
 		vim.lsp.config["lua_ls"] = {
