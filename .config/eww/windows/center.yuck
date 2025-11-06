@@ -1,0 +1,39 @@
+(defwidget divider [dir num]
+  (box :class "${dir}_div_${num}_box"
+       :orientation "h"
+    (label :class "${dir}_div_${num}" 
+           :text { dir == "left" ? "" : "" }
+    )
+  )
+)
+
+(defwidget inverted_divider [dir num]
+  (box :class "${dir}_invdiv_${num}_box"
+       :orientation "h"
+    (label :class "${dir}_invdiv_${num}" 
+           :text { dir == "left" ? "" : "" }
+    )
+  )
+)
+
+(defwidget distro_icon []
+  (box :class "distro_box"
+       :orientation "h"
+    (label :class "distro_icon" 
+           :text "󰣇" 
+    )
+  )
+)
+
+(defwidget center []
+  (box :orientation "h"
+       :space-evenly false
+    (divider :dir "left" :num 2)
+    (inverted_divider :dir "left" :num 1)
+    (divider :dir "left" :num 1)
+    (distro_icon)  
+    (divider :dir "right" :num 1)
+    (inverted_divider :dir "right" :num 1)
+    (divider :dir "right" :num 2)
+  )
+)

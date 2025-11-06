@@ -1,0 +1,37 @@
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "FG"
+            :value "23"
+            :onchange "amixer -D pulse sset Master {}%")
+    (metric :label "U"
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+    (metric :label "I"
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            :onchange "")
+    time))
+
+(defwidget right []
+  (box :orientation "h"
+    (sidestuff)  
+  )
+)

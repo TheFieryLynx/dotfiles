@@ -1,0 +1,35 @@
+/* ----< cpu >---- */
+
+.left_invdiv_1,
+.left_div_2 {
+	color: $cpu;
+	font-size: 22px;
+}
+
+
+/* ----< distro icon >---- */
+
+.distro_box {
+	padding: 0 10px 0 5px;
+	background-color: $accent;
+	color: $main-bg;
+}
+
+.distro_icon {
+	color: $main-bg;
+	font-size: 22px;
+}
+
+.left_div_1,
+.right_div_1 {
+	color: $accent;
+	font-size: 22px;
+}
+
+/* ----< time >---- */
+
+.right_invdiv_1,
+.right_div_2 {
+	color: $time;
+	font-size: 22px;
+}
