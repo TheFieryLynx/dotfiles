@@ -1,4 +1,5 @@
 (defpoll current_time :interval "5s" "date +'%H:%M'")
+(defpoll cpu_usage :interval "2s" "grep 'cpu ' /proc/stat | awk '{print int(($2+$4)*100/($2+$4+$5))}'")
 
 (defwidget divider [dir num]
   (box :class "${dir}_div_${num}_box"
@@ -32,25 +33,52 @@
        :orientation "h"
        :space-evenly false
        :spacing 0
+       :halign "center"
     (label :class "time_icon" :text "")  
     (label :class "time_text" :text {current_time})
   )
 )
 
+(defwidget cpu []
+  (box :class "cpu_box"
+       :orientation "h"
+       :space-evenly false
+       :spacing 0
+       :halign "center"
+    (label :class "cpu_icon" :text "󰍛")  
+    (label :class "cpu_text" :text "${cpu_usage}%")
+  )
+)
+
+(defwidget left_side []
+  (box :orientation "h"
+       :space-evenly false
+       :spacing 0
+    (divider :dir "left" :num 2)
+    (cpu)
+    (inverted_divider :dir "left" :num 1)
+    (divider :dir "left" :num 1)
+  )
+)
+
+(defwidget right_side []
+  (box :orientation "h"
+       :space-evenly false
+       :spacing 0
+    (divider :dir "right" :num 1)
+    (inverted_divider :dir "right" :num 1)
+    (time)
+    (divider :dir "right" :num 2)
+  )
+)
 
 (defwidget center []
   (box :orientation "h"
        :space-evenly false
        :spacing 0
-    (divider :dir "left" :num 2)
-    (inverted_divider :dir "left" :num 1)
-    (divider :dir "left" :num 1)
+       :halign "center"
+    (left_side)
     (distro_icon)  
-    (divider :dir "right" :num 1)
-    (inverted_divider :dir "right" :num 1)
-    (divider :dir "right" :num 2)
-    (inverted_divider :dir "right" :num 2)
-    (time)
-    (divider :dir "right" :num 3)
+    (right_side)
   )
 )
