@@ -1,3 +1,16 @@
+(deflisten hypr_active_workspace "~/.config/eww/scripts/hyprland/active_workspace.sh")
+
+
+(defwidget test []
+  (box :class "test"
+       :orientation "h"
+    (label :class "time_text" 
+           :text "${hypr_active_workspace}"
+    )
+  )
+)
+
+
 (defwidget workspaces []
   (box :class "workspaces"
        :orientation "h"
@@ -17,5 +30,6 @@
 (defwidget left []
   (box :orientation "h"
     (workspaces)  
+    (test)
   )
 )
