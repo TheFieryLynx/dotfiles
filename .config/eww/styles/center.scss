@@ -45,3 +45,31 @@
   min-width: 80px;
 }
 
+/* ----< memory and date >---- */
+
+.left_invdiv_2,
+.left_div_3,
+.right_invdiv_2,
+.right_div_3 {
+	color: $memory_date;
+	font-size: 22px;
+}
+.memory_icon {
+  background-color: $memory_date;
+  margin: 0 5px 0 20px;
+}
+.date_icon {
+  background-color: $memory_date;
+  margin: 0 5px 0 5px;
+}
+.memory_text,
+.date_text {
+  background-color: $memory_date;
+  margin: 0 5px 0 5px;
+}
+.memory_box,
+.date_box {
+  background-color: $memory_date;
+  min-width: 80px;
+}
+
