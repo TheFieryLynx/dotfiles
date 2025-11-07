@@ -73,3 +73,32 @@
   min-width: 80px;
 }
 
+
+/* ----< temperature and layout >---- */
+
+.left_invdiv_3,
+.left_div_4,
+.right_invdiv_3,
+.right_div_4 {
+	color: $temp_layout;
+	font-size: 22px;
+}
+.temp_icon {
+  background-color: $temp_layout;
+  margin: 0 5px 0 20px;
+}
+.layout_icon {
+  background-color: $temp_layout;
+  margin: 0 15px 0 10px;
+}
+.temp_text,
+.layout_text {
+  background-color: $temp_layout;
+  margin: 0 5px 0 5px;
+}
+.temp_box,
+.layout_box {
+  background-color: $temp_layout;
+  min-width: 80px;
+}
+
