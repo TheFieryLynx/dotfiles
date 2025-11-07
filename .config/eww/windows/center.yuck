@@ -3,7 +3,7 @@
 (defpoll mem_usage :interval "5s" "free | awk '/Mem:/ {printf \"%d\", $3/$2 * 100}'")
 (defpoll current_date :interval "5m" "date +'%d-%m'")
 (defpoll cpu_temp :interval "5s" "awk '{print $1/1000}' /sys/class/thermal/thermal_zone1/temp")
-(deflisten keyboard_layout "socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - 2>/dev/null | grep --line-buffered \"^activelayout>>\"")
+(deflisten keyboard_layout "~/.config/eww/scripts/hyprland/keyboard_layout.sh")
 
 (defwidget divider [dir num]
   (box :class "${dir}_div_${num}_box"
@@ -95,9 +95,7 @@
        :spacing 0
        :halign "center"
     (label :class "layout_icon" :text "󰌌")
-    (label :text { 
-           matches(keyboard_layout, ",Russian") ? "RU" : 
-           matches(keyboard_layout, ",English") ? "EN" : "" })
+    (label :text "${keyboard_layout}")
   )
 )
 
