@@ -1,0 +1,45 @@
+/* ----< workspaces >----*/
+
+.left_div_101,
+.right_div_101 {
+	color: $workspaces;
+  font-size: 22px;
+}
+.workspaces {
+	padding: 0 1px;
+	background-color: $workspaces;
+}
+.workspace_button {
+	border-radius: 16px;
+	min-width: 16px;
+	padding: 0 10px;
+}
+.workspace_button:hover {
+	background-color: $hover-bg;
+	color: $hover-fg;
+}
+.workspace_button_icon {
+  font-size: 22px;
+  color: $accent;
+}
+
+.left_invdiv_101,
+.left_div_102,
+.right_div_102,
+.right_invdiv_101 {
+  color: $accent;
+  font-size: 15px;
+}
+
+.right_ws_button,
+.left_ws_button {
+	border-radius: 16px;
+	min-width: 16px;
+	padding: 0 10px;
+}
+
+.right_ws_button:hover,
+.left_ws_button:hover {
+	background-color: $hover-bg;
+	color: $accent;
+}

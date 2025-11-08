@@ -1,3 +1,4 @@
+(include "./windows/common.yuck")
 (include "./windows/left.yuck")
 (include "./windows/center.yuck")
 (include "./windows/right.yuck")

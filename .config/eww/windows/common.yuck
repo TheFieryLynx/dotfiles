@@ -1,0 +1,17 @@
+(defwidget divider [dir num]
+  (box :class "${dir}_div_${num}_box"
+       :orientation "h"
+    (label :class "${dir}_div_${num}" 
+           :text { dir == "left" ? "" : "" }
+    )
+  )
+)
+
+(defwidget inverted_divider [dir num]
+  (box :class "${dir}_invdiv_${num}_box"
+       :orientation "h"
+    (label :class "${dir}_invdiv_${num}" 
+           :text { dir == "left" ? "" : "" }
+    )
+  )
+)

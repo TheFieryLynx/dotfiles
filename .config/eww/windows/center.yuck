@@ -5,23 +5,6 @@
 (defpoll cpu_temp :interval "5s" "awk '{print $1/1000}' /sys/class/thermal/thermal_zone1/temp")
 (deflisten keyboard_layout "~/.config/eww/scripts/hyprland/keyboard_layout.sh")
 
-(defwidget divider [dir num]
-  (box :class "${dir}_div_${num}_box"
-       :orientation "h"
-    (label :class "${dir}_div_${num}" 
-           :text { dir == "left" ? "" : "" }
-    )
-  )
-)
-
-(defwidget inverted_divider [dir num]
-  (box :class "${dir}_invdiv_${num}_box"
-       :orientation "h"
-    (label :class "${dir}_invdiv_${num}" 
-           :text { dir == "left" ? "" : "" }
-    )
-  )
-)
 
 (defwidget distro_icon []
   (box :class "distro_box"
