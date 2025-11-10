@@ -1,0 +1,13 @@
+(include "./widgets/bar/common.yuck")
+(include "./widgets/bar/left.yuck")
+(include "./widgets/bar/center.yuck")
+(include "./widgets/bar/right.yuck")
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (left)
+    (center)
+    (right)
+  )
+)
+

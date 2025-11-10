@@ -1,8 +1,9 @@
-(include "./windows/bar.yuck")
+(include "./widgets/bar/main.yuck")
+(include "./widgets/notifications/main.yuck")
 
 
 (defwindow bar
-  :monitor 0
+  :monitor 1
   :windowtype "dock"
   :exclusive true
   :geometry (geometry :x "0%"
@@ -12,4 +13,15 @@
                       :anchor "top center"
             )
   :reserve (struts :side "top" :distance "0%")
-  (bar))
+  (bar)
+)
+
+(defwindow notifications
+  :monitor 1
+  :geometry (geometry :x "20px"
+                     :y "20px"
+                     :anchor "top right")
+  :stacking "overlay"
+  :windowtype: "popup"
+  (notification)
+)

@@ -1,0 +1,13 @@
+(deflisten notif_daemon "~/.config/eww/scripts/notifications/notif_daemon.py")
+
+(defvar notif_content "")
+
+(defwidget notification []
+  (box :class "notifications-container"
+       :orientation "v"
+       :spacing 10
+       :halign "end"
+       (literal :content {notif_daemon})  ; ← вот сюда вставляется весь yuck от скрипта
+  )
+)
+
