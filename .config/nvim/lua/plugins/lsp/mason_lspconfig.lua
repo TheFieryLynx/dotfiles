@@ -40,6 +40,11 @@ return {
 					[vim.diagnostic.severity.INFO] = "",
 				},
 			},
+			float = {
+				source = "always",
+				border = "rounded",
+				focus = false,
+			},
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()

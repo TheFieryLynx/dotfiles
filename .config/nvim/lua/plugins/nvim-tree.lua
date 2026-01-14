@@ -11,7 +11,7 @@ return {
 		nvtree.setup({
 			view = {
 				width = 35,
-				relativenumber = true,
+				relativenumber = false,
 			},
 			git = {
 				enable = true,

@@ -10,10 +10,10 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				lua = { "stylua" },
-				python = { "ruff" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 1000,
 			},
