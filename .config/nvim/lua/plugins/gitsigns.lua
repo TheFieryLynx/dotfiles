@@ -22,5 +22,9 @@ return {
 			current_line_blame = true,
 			signcolumn = true,
 		})
+
+		require("which-key").register({
+			["<leader>td"] = { gitsigns.preview_hunk_inline, "Toggle deleted" },
+		})
 	end,
 }

@@ -10,9 +10,11 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"pyright",
+				"basedpyright",
 				"lua_ls",
 				"qmlls",
+				"ansiblels",
+				"ruff",
 			},
 			automatic_enable = false,
 		})
@@ -42,31 +44,39 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		vim.lsp.enable({ "pyright", "lua_ls", "qmlls" })
+		vim.lsp.enable({ "basedpyright", "lua_ls", "qmlls", "gopls", "ruff" })
 
-		vim.lsp.config["pyright"] = {
+		vim.lsp.config["gopls"] = {
+			capabilities = capabilities,
+			filetypes = { "go" },
+		}
+		vim.lsp.config["basedpyright"] = {
 			capabilities = capabilities,
 			filetypes = { "python" },
 			settings = {
-				python = {
+				basedpyright = {
 					analysis = {
 						useLibraryCodeForTypes = "True",
+						autoSearchPaths = true,
+						typeCheckingMode = "standard",
 						diagnosticSeverityOverrides = {
 							reportIncompatibleVariableOverride = "none",
 							reportGeneralTypeIssues = "none",
+							reportDeprecated = "none",
 						},
 					},
 				},
 			},
 		}
+		vim.lsp.config["ruff"] = {
+			capabilities = capabilities,
+			filetypes = { "python" },
+			cmd = { "ruff", "server", "--preview" },
+		}
 		vim.lsp.config["qmlls"] = {
 			capabilities = capabilities,
 			settings = {
 				root_dir = vim.lsp.util.find_git_ancestor,
-				qmlls = {
-					builDir = "build",
-					qmlDir = "/usr/lib/qt6/qml",
-				},
 			},
 		}
 		vim.lsp.config["lua_ls"] = {

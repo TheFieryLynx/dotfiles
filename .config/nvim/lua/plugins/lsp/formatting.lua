@@ -6,18 +6,11 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier", "ts-standard" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				svelte = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
-				markdown = { "prettier" },
-				graphql = { "prettier" },
 				lua = { "stylua" },
-				python = { "ruff_format" },
+				python = { "ruff" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

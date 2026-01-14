@@ -1,10 +1,5 @@
 return {
 	"mason-org/mason.nvim",
-	opts = {
-		ensure_installed = {
-			"pyright",
-		},
-	},
 	config = function()
 		local mason = require("mason")
 		mason.setup({
