@@ -16,7 +16,16 @@ return {
 		local telescope = require("telescope")
 		local telescope_builtin = require("telescope.builtin")
 		local wk = require("which-key")
-
+		local diagnostics_maker = require("telescope.make_entry").gen_from_diagnostics({})
+		local entry_display = require("telescope.pickers.entry_display")
+		local diag_displayer = entry_display.create({
+			separator = " ",
+			items = {
+				{ width = 20 }, -- файл
+				{ width = 8 }, -- позиция
+				{ remaining = true }, -- сообщение
+			},
+		})
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
@@ -42,6 +51,44 @@ return {
 					"--column",
 					"--smart-case",
 					"--fixed-strings",
+				},
+			},
+			pickers = {
+				diagnostics = {
+					layout_strategy = "vertical",
+					layout_config = {
+						width = 0.9,
+						height = 0.95,
+						preview_height = 0.6,
+					},
+					entry_maker = function(entry)
+						-- базовый item как делает сам Telescope
+						local item = diagnostics_maker(entry)
+
+						-- короткое имя файла (без пути)
+						local short = ""
+						if item.filename and item.filename ~= "" then
+							short = vim.fn.fnamemodify(item.filename, ":t")
+						end
+
+						-- текст сообщения (в одну строку)
+						local msg = item.text or item.value or ""
+						msg = msg:gsub("\n", " "):gsub("%s+", " ")
+
+						-- позиция
+						local pos = string.format("%d:%d", item.lnum or 0, item.col or 0)
+
+						-- display теперь функция, которая возвращает текст + хайлайты
+						item.display = function(entry_inner)
+							return diag_displayer({
+								{ short, "Directory" }, -- имя файла с цветом
+								{ pos, "LineNr" }, -- позиция
+								{ msg }, -- сообщение
+							})
+						end
+
+						return item
+					end,
 				},
 			},
 			extensions = {
