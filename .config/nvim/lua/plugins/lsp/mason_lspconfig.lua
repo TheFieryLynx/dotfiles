@@ -15,6 +15,7 @@ return {
 				"qmlls",
 				"ansiblels",
 				"ruff",
+				"yamlls",
 			},
 			automatic_enable = false,
 		})
@@ -49,11 +50,36 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		vim.lsp.enable({ "basedpyright", "lua_ls", "qmlls", "gopls", "ruff" })
+		vim.lsp.enable({ "basedpyright", "lua_ls", "qmlls", "gopls", "ruff", "ansiblels", "yamlls" })
 
 		vim.lsp.config["gopls"] = {
 			capabilities = capabilities,
 			filetypes = { "go" },
+		}
+
+		vim.lsp.config["ansiblels"] = {
+			capabilities = capabilities,
+			filetypes = { "yaml.ansible" },
+			settings = {
+				ansible = {
+					ansible = {
+						useFullyQualifiedCollectionNames = true,
+					},
+
+					validation = {
+						enabled = true,
+						lint = {
+							enabled = true,
+							arguments = "-p",
+							autoFixOnSave = false,
+						},
+					},
+				},
+			},
+		}
+		vim.lsp.config["yamlls"] = {
+			capabilities = capabilities,
+			filetypes = { "yaml", "yml" },
 		}
 		vim.lsp.config["basedpyright"] = {
 			capabilities = capabilities,
@@ -88,6 +114,9 @@ return {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
 					diagnostics = {
 						globals = { "vim" },
 					},
