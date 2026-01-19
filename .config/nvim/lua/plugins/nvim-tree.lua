@@ -27,6 +27,10 @@ return {
 					"__pycache__",
 				},
 			},
+			update_focused_file = {
+				enable = true,
+				update_root = false,
+			},
 		})
 		-- set keymaps
 
