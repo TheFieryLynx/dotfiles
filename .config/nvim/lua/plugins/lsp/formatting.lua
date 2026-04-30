@@ -8,6 +8,8 @@ return {
 			formatters_by_ft = {
 				css = { "prettier" },
 				html = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
 				json = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },

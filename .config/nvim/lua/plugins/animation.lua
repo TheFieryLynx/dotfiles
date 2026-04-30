@@ -1,7 +1,7 @@
 return {
-	"LuxVim/nvim-luxmotion",
+	"josstei/whisk.nvim",
 	config = function()
-		local luxmotion = require("luxmotion")
+		local luxmotion = require("whisk")
 		luxmotion.setup({
 			cursor = {
 				duration = 250,

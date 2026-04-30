@@ -37,17 +37,6 @@ return {
 						preview_width = 0.65,
 					},
 				},
-				hidden = true,
-				no_ignore = true,
-				file_ignore_patterns = {
-					"^%.git/",
-					"^%.cache/",
-					"^%.local/",
-					"^%.npm/",
-					"^%.cargo/",
-					"^%.venv/",
-					"^%.env/",
-				},
 				wrap_results = true,
 				prompt_title = false,
 				results_title = false,
@@ -65,7 +54,6 @@ return {
 				},
 			},
 			pickers = {
-				find_files = { hidden = true, no_ignore = true },
 				diagnostics = {
 					layout_strategy = "vertical",
 					layout_config = {

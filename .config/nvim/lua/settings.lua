@@ -55,6 +55,11 @@ vim.filetype.add({
 		end,
 	},
 })
+vim.filetype.add({
+	pattern = {
+		[".*%.j2"] = "jinja",
+	},
+})
 vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
 	pattern = { "*.yml", "*.yaml" },
 	callback = function(args)

@@ -16,6 +16,7 @@ return {
 				"ansiblels",
 				"ruff",
 				"yamlls",
+				"jinja_lsp",
 			},
 			automatic_enable = false,
 		})
@@ -50,7 +51,7 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		vim.lsp.enable({ "basedpyright", "lua_ls", "qmlls", "gopls", "ruff", "ansiblels", "yamlls" })
+		vim.lsp.enable({ "basedpyright", "jinja_lsp", "lua_ls", "qmlls", "gopls", "ruff", "ansiblels", "yamlls" })
 
 		vim.lsp.config["gopls"] = {
 			capabilities = capabilities,
@@ -80,6 +81,10 @@ return {
 		vim.lsp.config["yamlls"] = {
 			capabilities = capabilities,
 			filetypes = { "yaml", "yml" },
+		}
+		vim.lsp.config["jinja_lsp"] = {
+			capabilities = capabilities,
+			filetypes = { "j2", "jinja", "jinja2" },
 		}
 		vim.lsp.config["basedpyright"] = {
 			capabilities = capabilities,

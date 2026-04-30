@@ -1,3 +1,13 @@
 return {
-  "RRethy/vim-illuminate",
+	"RRethy/vim-illuminate",
+	config = function()
+		require("illuminate").configure({
+			providers = { "lsp", "regex" },
+			delay = 200,
+			large_file_cutoff = 2000,
+			large_file_overrides = {
+				providers = { "lsp", "regex" },
+			},
+		})
+	end,
 }
